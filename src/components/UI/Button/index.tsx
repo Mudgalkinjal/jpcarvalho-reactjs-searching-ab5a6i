@@ -1,10 +1,10 @@
 interface IProps {
   // variant?: 'Primary' | 'Secondary';
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Button = ({ children }: IProps) => {
-  return <button>{children}</button>;
-};
+  return <button style={{ backgroundColor: 'red' }}>{children}</button>
+}
 
-export default Button;
+export default Button

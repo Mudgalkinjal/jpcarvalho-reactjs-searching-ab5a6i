@@ -1,17 +1,20 @@
 interface IProps {
-  options: string[];
-  placeholder?: string;
-  onSelect: (value: string) => void;
+  options: string[]
+  placeholder?: string
+  onSelect: (value: string) => void
 }
 
 const Dropdown = ({
-  options,
+  options = [],
   placeholder = 'Select a option',
   onSelect,
 }: IProps) => {
+  if (!Array.isArray(options)) {
+    throw new Error('Please add array')
+  }
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSelect(e.target.value);
-  };
+    onSelect(e.target.value)
+  }
   return (
     <select onChange={handleChange}>
       <option value="" disabled selected>
@@ -23,7 +26,7 @@ const Dropdown = ({
         </option>
       ))}
     </select>
-  );
-};
+  )
+}
 
-export default Dropdown;
+export default Dropdown
